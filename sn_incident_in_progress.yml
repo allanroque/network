@@ -3,19 +3,20 @@
   hosts: localhost
   connection: local
   vars:
-    sn_incident_number: INC0012985
-    output_information: "The IOS/NXOS version is: 17.03.06\nThe serial number is: 9XPDBWFSG7A\n"
+    sn_incident_number:
+    output_information:
 
   tasks:
 
     - name: Create incident
       servicenow.itsm.incident:
-        number: "{{ sn_incident_number }}"
+        number: "{{ sn_incident_number.msg }}"
         state: in_progress
         instance:
           host: "{{ snow_instance }}"
           username: "{{ snow_username }}"
           password: "{{ snow_password }}"
+          validate_certs: false
         caller: "{{ lookup('env', 'SN_USERNAME') }}"
         short_description: "teste de network - PROGRESSO!!!!!!!!!!!"
         description: "{{ output_information }}"
