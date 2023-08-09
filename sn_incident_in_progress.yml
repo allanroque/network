@@ -7,8 +7,6 @@
     output_information:
   vars_files:
     - proxy_var.yml
-      #collections:
-      #  - collections/ansible_collections/servicenow
 
   tasks:
 

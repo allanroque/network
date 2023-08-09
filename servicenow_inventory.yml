@@ -1,0 +1,6 @@
+---
+plugin: servicenow.servicenow.now
+fields: [name,host_name,fqdn,ip_address,sys_class_name, install_status, classification,vendor]
+fields:
+  - name
+  - sys_tags
