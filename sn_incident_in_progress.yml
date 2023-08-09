@@ -3,8 +3,8 @@
   hosts: localhost
   connection: local
   vars:
-    sn_incident_number:
-    output_information:
+    sn_incident_number: "test"
+    output_information: "test"
   collections:
     - collections/ansible_collections/servicenow
 
@@ -12,7 +12,8 @@
 
     - name: Create incident
       servicenow.itsm.incident:
-        number: "{{ sn_incident_number.msg }}"
+#        number: "{{ sn_incident_number.msg }}"
+        number: "{{ sn_incident_number }}"
         state: in_progress
         instance:
           host: "{{ snow_instance }}"
