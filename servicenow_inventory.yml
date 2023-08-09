@@ -1,4 +1,3 @@
----
 plugin: servicenow.servicenow.now
 host: "{{ snow_instance }}"
 username: "{{ snow_username }}"
