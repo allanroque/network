@@ -3,7 +3,8 @@
   hosts: localhost
   connection: local
   vars:
-    sn_incident_number: 
+    sn_incident_number: INC0012985
+    output_information: "The IOS/NXOS version is: 17.03.06\nThe serial number is: 9XPDBWFSG7A\n"
 
   tasks:
 
