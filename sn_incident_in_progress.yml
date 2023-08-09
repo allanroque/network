@@ -10,6 +10,7 @@
 
     - name: Create incident
       servicenow.itsm.incident:
+        number: "{{ sn_incident_number }}"
         state: in_progress
         instance:
           host: "{{ snow_instance }}"
