@@ -5,6 +5,8 @@
   vars:
     sn_incident_number:
     output_information:
+  collections:
+    - collections/ansible_collections/servicenow
 
   tasks:
 
