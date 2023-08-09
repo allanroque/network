@@ -1,0 +1,25 @@
+---
+- name: Automate SNOW - in_progress
+  hosts: localhost
+  connection: local
+  vars:
+    sn_incident_number: 
+
+  tasks:
+
+    - name: Create incident
+      servicenow.itsm.incident:
+        state: in_progress
+        instance:
+          host: "{{ sn_host }}"
+          username: "{{ sn_username }}"
+          password: "{{ sn_password }}"
+        caller: "{{ lookup('env', 'SN_USERNAME') }}"
+        short_description: "teste de network - PROGRESSO!!!!!!!!!!!"
+        description: "{{ output_information }}"
+        impact: low
+        urgency: low
+      register: new_incident
+
+    - debug:
+        var: output_information

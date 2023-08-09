@@ -1,0 +1,31 @@
+---
+- name: Automate SNOW - Incident Create
+  hosts: localhost
+  connection: local
+  tasks:
+
+    - name: Create incident
+      servicenow.itsm.incident:
+        state: new
+        instance:
+          host: "{{ sn_host }}"
+          username: "{{ sn_username }}"
+          password: "{{ sn_password }}"
+        caller: "{{ lookup('env', 'SN_USERNAME') }}"
+        short_description: "teste de network"
+        description: "teste ansible!!!!!!!!!!!!!! NETWORK"
+        impact: low
+        urgency: low
+      register: new_incident
+
+    - set_fact:
+        sn_incident_number: "{{ new_incident.record.number }}"
+
+    - debug:
+        var: new_incident.record.number
+
+    - name: Set incident number
+      set_stats:
+        data:
+          sn_incident_number: "{{ new_incident.record.number }}"
+

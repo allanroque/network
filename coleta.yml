@@ -19,3 +19,10 @@
         msg: |
           The IOS/NXOS version is: {{ ansible_net_version }}
           The serial number is: {{ ansible_net_serialnum }}
+      register: output_information
+
+    - name: Set vars
+      set_stats:
+        data:
+          output_information: "{{ output_information }}"
+

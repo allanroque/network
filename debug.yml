@@ -1,0 +1,7 @@
+---
+- name: debug output information
+  hosts: localhost
+  tasks:
+    - name: debug
+      debug:
+        var: output_information
