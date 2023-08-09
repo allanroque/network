@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    sn_incident_number: "test"
+    sn_incident_number: INC0012987
     output_information: "test"
   collections:
     - collections/ansible_collections/servicenow
