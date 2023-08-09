@@ -6,6 +6,8 @@
   vars:
     sn_incident_number:
     output_information:
+  vars_files:
+    - proxy_var.yml
   collections:
     - collections/ansible_collections/servicenow
 
@@ -29,6 +31,11 @@
 #      environment:
 #        http_proxy: http://proxy.bos.example.com:8080
 #        https_proxy: http://proxy.bos.example.com:8080
+# senha do vault = redhat
+
+     - name: debug var vault
+       debug:
+         msg: "http_proxy {{ var_http_proxy }} https_proxy {{ var_https_proxy }}"
 
 #    - debug:
 #        var: output_information
