@@ -2,7 +2,6 @@
 - name: Automate SNOW - in_progress
   hosts: localhost
   gather_facts: no
-  warn: false
   vars:
     sn_incident_number:
     output_information:
