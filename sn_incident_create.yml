@@ -8,9 +8,9 @@
       servicenow.itsm.incident:
         state: new
         instance:
-          host: "{{ sn_host }}"
-          username: "{{ sn_username }}"
-          password: "{{ sn_password }}"
+          host: "{{ SNOW_INSTANCE }}"
+          username: "{{ SNOW_USERNAME }}"
+          password: "{{ SNOW_PASSWORD }}"
         caller: "{{ lookup('env', 'SN_USERNAME') }}"
         short_description: "teste de network"
         description: "teste ansible!!!!!!!!!!!!!! NETWORK"
