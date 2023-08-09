@@ -2,9 +2,10 @@
 - name: Automate SNOW - in_progress
   hosts: localhost
   connection: local
+  gather_facts: no
   vars:
-    sn_incident_number: INC0012987
-    output_information: "test"
+    sn_incident_number:
+    output_information:
   collections:
     - collections/ansible_collections/servicenow
 
@@ -12,7 +13,6 @@
 
     - name: Create incident
       servicenow.itsm.incident:
-#        number: "{{ sn_incident_number.msg }}"
         number: "{{ sn_incident_number }}"
         state: in_progress
         instance:
@@ -21,11 +21,17 @@
           password: "{{ snow_password }}"
           validate_certs: false
         caller: "{{ lookup('env', 'SN_USERNAME') }}"
-        short_description: "teste de network - PROGRESSO!!!!!!!!!!!"
+        short_description: "{{ output_information.msg }}"
         description: "{{ output_information }}"
         impact: low
         urgency: low
-      register: new_incident
+      register: in_progress_output
+#      environment:
+#        http_proxy: http://proxy.bos.example.com:8080
+#        https_proxy: http://proxy.bos.example.com:8080
 
-    - debug:
-        var: output_information
+#    - debug:
+#        var: output_information
+#
+#    - debug:
+#        var: in_progress_output
