@@ -1,15 +1,15 @@
 ---
 - name: Automate SNOW - in_progress
   hosts: localhost
-  connection: local
   gather_facts: no
+  warn: false
   vars:
     sn_incident_number:
     output_information:
   vars_files:
     - proxy_var.yml
-  collections:
-    - collections/ansible_collections/servicenow
+      #collections:
+      #  - collections/ansible_collections/servicenow
 
   tasks:
 
