@@ -2,6 +2,8 @@
 - name: Automate SNOW - uptade change
   hosts: localhost
   connection: local
+  vars:
+    output_information: oioioioioi
   tasks:
 
   - name: Add a work note to the change request
@@ -11,7 +13,7 @@
         username: "{{ snow_username }}"
         password: "{{ snow_password }}"
         validate_certs: false
-      number: CHG0030867
+      number: CHG0030902
       other:
         work_notes: |
          "{{ output_information }}"
