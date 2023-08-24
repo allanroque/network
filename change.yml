@@ -16,4 +16,4 @@
       number: "{{ sn_change_number }}"
       other:
         work_notes: |
-         "{{ output_information.msg }}"
+         {{ output_information.msg }}
