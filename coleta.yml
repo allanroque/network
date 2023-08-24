@@ -24,6 +24,6 @@
     - name: Set vars
       set_stats:
         data:
-          sn_change_number: CHG0030902
-          output_information: "{{ output_information }}"
+          incident_number: CHG0030902
+          router_info: "{{ router_info }}"
 

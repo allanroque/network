@@ -3,17 +3,17 @@
   hosts: localhost
   connection: local
   vars:
-    output_information: oioioioioi
+    router_info: oioioioioi
   tasks:
 
-  - name: Add a work note to the change request
-    servicenow.itsm.change_request:
+  - name: Update incident
+    servicenow.itsm.incident:
       instance:
         host: "{{ snow_instance }}"
         username: "{{ snow_username }}"
         password: "{{ snow_password }}"
         validate_certs: false
-      number: "{{ sn_change_number }}"
+      number: "{{ incident_number }}"
       other:
         work_notes: |
-         {{ output_information.msg }}
+          {{ router_info.msg }}
