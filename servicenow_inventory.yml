@@ -1,8 +1,16 @@
 plugin: servicenow.itsm.now
-host: "{{ snow_instance }}"
-username: "{{ snow_username }}"
-password: "{{ snow_password }}"
-fields: [name,host_name,fqdn,ip_address,sys_class_name, install_status, classification,vendor]
-fields:
-  - name
-  - sys_tags
+query:
+  - os: = Linux Red Hat
+  - os: = Windows XP
+keyed_groups:
+  - key: os
+    prefix: os
+
+#plugin: servicenow.itsm.now
+#host: "{{ snow_instance }}"
+#username: "{{ snow_username }}"
+#password: "{{ snow_password }}"
+#fields: [name,host_name,fqdn,ip_address,sys_class_name, install_status, classification,vendor]
+#fields:
+#  - name
+#  - sys_tags
