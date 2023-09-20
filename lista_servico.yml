@@ -7,8 +7,14 @@
       ansible.windows.win_service_info:
       register: service_info
 
-    - name: Exibir informações de serviços
-      debug:
-        msg: "{{ item.name }} - {{ item.state }}"
+    - name: Gerar relatório de serviços
+      set_fact:
+        service_report: "{{ service_report | default([]) + [item.name ~ ' ' ~ item.state] }}"
       loop: "{{ service_info.services }}"
+      loop_control:
+        label: "{{ item.name }}"
+
+    - name: Exibir relatório de serviços
+      debug:
+        msg: "{{ service_report }}"
 
