@@ -13,6 +13,7 @@
       loop: "{{ service_info.services }}"
       loop_control:
         label: "{{ item.name }}"
+      no_log: true
 
     - name: Exibir relatório de serviços
       debug:
