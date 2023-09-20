@@ -9,4 +9,7 @@
 
     - name: Exibir relatório de serviços
       debug:
-        msg: "{{ service_info.services | map('combine', { 'nome_serviço': item.name, 'estado': item.state }) | list }}"
+        msg: "{{ service_info.services | map('combine', { 'nome_serviço': ansible_loop.item.name, 'estado': ansible_loop.item.state }) | list }}"
+      loop: "{{ service_info.services }}"
+      loop_control:
+        label: "{{ ansible_loop.item.name }}"
