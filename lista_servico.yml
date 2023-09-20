@@ -1,0 +1,14 @@
+---
+- name: Coletar informações sobre serviços no Windows
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Obter informações sobre serviços
+      ansible.windows.win_service_info:
+      register: service_info
+
+    - name: Exibir informações de serviços
+      debug:
+        msg: "{{ item.name }} - {{ item.state }}"
+      loop: "{{ service_info.services }}"
+
